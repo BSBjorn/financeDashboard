@@ -1,7 +1,7 @@
 <script setup>
 import Aside from "./components/Aside.vue";
 import MonthlyBalance from "./components/cards/MonthlyBalance.vue";
-import Last30Days from "./components/cards/Last30Days.vue";
+import LastXDays from "./components/cards/LastXDays.vue";
 import LastMonthExpenseBreakdown from "./components/cards/LastMonthExpenseBreakdown.vue";
 import LastMonthIncomeExpense from "./components/cards/LastMonthIncomeExpense.vue";
 </script>
@@ -11,7 +11,7 @@ import LastMonthIncomeExpense from "./components/cards/LastMonthIncomeExpense.vu
     <Aside />
     <main class="p-8 grid grid-cols-5 gap-8">
       <MonthlyBalance class="card col-span-2" />
-      <Last30Days class="card col-span-3" />
+      <LastXDays class="card col-span-3" />
       <LastMonthExpenseBreakdown class="card col-span-3" />
       <LastMonthIncomeExpense class="card col-span-2" />
     </main>

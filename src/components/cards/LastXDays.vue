@@ -18,8 +18,7 @@ const chartOptions = {
       },
     },
     y: {
-      max: 6000,
-      suggestedMax: 3000,
+      suggestedMax: 4000,
       title: {
         display: true,
         text: "Amount",
