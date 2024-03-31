@@ -1,6 +1,15 @@
 //fetch transactions from the API/transaionts.json file
 import transactions from "../api/transactions.json";
 
+import { supabase } from "../lib/supabaseClient";
+
+async function getTransactions() {
+  let { data: transactions, error } = await supabase
+    .from("transactions")
+    .select("*");
+  return transactions;
+}
+
 // Function to get monthly balance
 function getMonthlyBalance(): {
   labels: string[];
@@ -280,4 +289,5 @@ export {
   getLastDaysActivity,
   getMonthlyIncomeExpense,
   getMonthlyExpensesBreakdown,
+  getTransactions,
 };
