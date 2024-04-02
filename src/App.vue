@@ -1,19 +1,12 @@
 <script setup>
 import Aside from "./components/Aside.vue";
-import MonthlyBalance from "./components/cards/MonthlyBalance.vue";
-import LastXDays from "./components/cards/LastXDays.vue";
-import LastMonthExpenseBreakdown from "./components/cards/LastMonthExpenseBreakdown.vue";
-import LastMonthIncomeExpense from "./components/cards/LastMonthIncomeExpense.vue";
 </script>
 
 <template>
   <div class="window flex h-screen bg-slate-50">
     <Aside />
-    <main class="p-8 grid grid-cols-5 gap-8">
-      <MonthlyBalance class="card col-span-2" />
-      <LastXDays class="card col-span-3" />
-      <LastMonthExpenseBreakdown class="card col-span-3" />
-      <LastMonthIncomeExpense class="card col-span-2" />
+    <main class="p-8">
+      <RouterView />
     </main>
   </div>
 </template>

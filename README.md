@@ -12,6 +12,15 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 Run `Yarn install` and then `yarn run dev` to develop.
 
+## Supabase client
+
+Create a database in Supabase and add in .env the following variables
+
+```
+SUPABASE_URL = "https://********.supabase.co"
+SUPABASE_KEY = "someSecretKey"
+```
+
 ## Transactions source
 
 The dashboard needs JSON file in `/src/api/transactions.json` to with the format like this:
