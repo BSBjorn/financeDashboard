@@ -35,7 +35,7 @@ onMounted(() => {
         <span>
           {{ new Date(transaction.date).toLocaleDateString("nb-NO") }}
         </span>
-        <span> {{ transaction.amount }}kr - </span>
+        <span> {{ transaction.amount }}kr</span>
         <span>
           {{ transaction.description }}
         </span>

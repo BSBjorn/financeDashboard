@@ -4,7 +4,7 @@
     <nav class="flex flex-col gap-4 mt-6 font-semibold text-sm">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/import">Import</RouterLink>
-      <RouterLink to="/">Other page</RouterLink>
+      <RouterLink to="/account">Account</RouterLink>
       <RouterLink to="/">Transactions</RouterLink>
       <RouterLink to="/">Home</RouterLink>
     </nav>
