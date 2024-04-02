@@ -7,9 +7,9 @@ const error = ref(null);
 async function getTransactions() {
   let { data, error } = await supabase
     .from("transactions")
-    .select("Dato,Beløp,Tekst,id")
-    .order("Dato", { ascending: false })
-    .limit(5);
+    .select("date,amount,description,id")
+    .order("date", { ascending: false })
+    .limit(15);
   transcations.value = data;
 
   if (error) {
@@ -27,8 +27,18 @@ onMounted(() => {
     <h2 class="card-title">Latest Transactions</h2>
     <button @click="fetchTransactions">Refresh</button>
     <ul>
-      <li v-for="transaction in transcations" :key="transaction.id">
-        {{ transaction.Beløp }} - {{ transaction.Tekst }}
+      <li
+        v-for="transaction in transcations"
+        :key="transaction.id"
+        class="grid grid-cols-3 gap-4"
+      >
+        <span>
+          {{ new Date(transaction.date).toLocaleDateString("nb-NO") }}
+        </span>
+        <span> {{ transaction.amount }}kr - </span>
+        <span>
+          {{ transaction.description }}
+        </span>
       </li>
     </ul>
     <p v-if="error">{{ error }}</p>

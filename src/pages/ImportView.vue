@@ -1,7 +1,7 @@
 <script setup>
+import { supabase } from "../lib/supabaseClient.ts";
 import {
   VueCsvToggleHeaders,
-  VueCsvSubmit,
   VueCsvMap,
   VueCsvInput,
   VueCsvErrors,
@@ -10,19 +10,37 @@ import {
 
 import { ref } from "vue";
 const csv = ref(null);
+const progress = ref(0);
+const progressMax = ref(0);
 
+const err = ref(null);
 function process() {
   const rows = csv.value;
   //chunk the rows into smaller arrays
   const chunkedRows = chunk(rows, 50);
-  console.log(chunkedRows);
+  progressMax.value = chunkedRows.length;
+  chunkedRows.forEach((chunk) => {
+    let formatedRows = chunk.map((row) => {
+      const [day, month, year] = row.date.split(".");
+      return {
+        date: new Date(`${year}-${month}-${day}`).toISOString(),
+        category: row.category,
+        subcategory: row.subcategory,
+        amount: parseInt(row.amount),
+        description: row.description,
+      };
+    });
+    uploadToSupabase(formatedRows);
+    //console.log(formatedRows);
+  });
 }
 
 async function uploadToSupabase(rows) {
-  const { error } = await supabase.from("transactions").insert([
-    { id: 1, name: "Nepal" },
-    { id: 1, name: "Vietnam" },
-  ]);
+  const { error } = await supabase.from("transactions").insert(rows);
+  if (error) {
+    console.error(error);
+    err.value = error.message;
+  }
 }
 
 function chunk(array, size) {
@@ -39,6 +57,10 @@ function chunk(array, size) {
 <template>
   <div>
     <h1>Import transactions</h1>
+    <div v-if="err">
+      {{ err }}
+    </div>
+    <div v-if="csv"">{{ progress }}%</div>
     <div>
       <vue-csv-import
         v-model="csv"
@@ -47,7 +69,7 @@ function chunk(array, size) {
           category: { required: true, label: 'Kategori' },
           subcategory: { required: true, label: 'Underkategori' },
           amount: { required: true, label: 'Beløp' },
-          description: { required: true, label: 'Beskrivelse' },
+          description: { required: true, label: 'Tekst' },
         }"
       >
         <vue-csv-toggle-headers></vue-csv-toggle-headers>
