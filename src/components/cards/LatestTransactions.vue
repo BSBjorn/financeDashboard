@@ -9,7 +9,7 @@ async function getTransactions() {
     .from("transactions")
     .select("date,amount,description,id")
     .order("date", { ascending: false })
-    .limit(15);
+    .limit(10);
   transcations.value = data;
 
   if (error) {
@@ -35,7 +35,7 @@ onMounted(() => {
         <span>
           {{ new Date(transaction.date).toLocaleDateString("nb-NO") }}
         </span>
-        <span> {{ transaction.amount }}kr - </span>
+        <span> {{ transaction.amount }}kr</span>
         <span>
           {{ transaction.description }}
         </span>
