@@ -7,7 +7,7 @@ import AccountView from "./pages/Account.vue";
 const routes = [
   { path: "/", component: DashboardView },
   { path: "/import", component: ImportView },
-  { path: "/account", component: AccountView },
+  { path: "/account", component: AccountView, props: true },
 ];
 
 const router = createRouter({

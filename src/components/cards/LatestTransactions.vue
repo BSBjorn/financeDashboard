@@ -9,7 +9,7 @@ async function getTransactions() {
     .from("transactions")
     .select("date,amount,description,id")
     .order("date", { ascending: false })
-    .limit(15);
+    .limit(10);
   transcations.value = data;
 
   if (error) {
