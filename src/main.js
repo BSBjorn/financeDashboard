@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import "@fontsource-variable/nunito-sans";
 import "./style.css";
 
 import router from "./router.js";

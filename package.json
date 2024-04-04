@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/nunito-sans": "^5.0.13",
     "@supabase/supabase-js": "^2.41.1",
     "chart.js": "^4.4.2",
     "vue": "^3.4.21",

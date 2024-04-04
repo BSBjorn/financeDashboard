@@ -8,8 +8,8 @@ import LatestTransactions from "../components/cards/LatestTransactions.vue";
 
 <template>
   <div class="p-8 grid grid-cols-5 gap-8">
-    <LatestTransactions class="card col-span-3" />
-    <MonthlyBalance class="card col-span-2" />
+    <LatestTransactions class="card col-span-2 row-span-2" />
+    <MonthlyBalance class="card col-span-3" />
     <LastMonthIncomeExpense class="card col-span-2" />
     <LastDaysActivity class="card col-span-5 xl:col-span-4" />
     <LastMonthExpenseBreakdown class="card col-span-3" />

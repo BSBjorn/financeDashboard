@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Nunito Sans Variable", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         violet: {
           50: "#f4f1ff",
