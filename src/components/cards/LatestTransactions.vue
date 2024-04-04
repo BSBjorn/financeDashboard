@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <div class="card">
     <h2 class="card-title">Latest Transactions</h2>
-    <button @click="fetchTransactions">Refresh</button>
+    <button class="btn" @click="fetchTransactions">Refresh</button>
     <ul>
       <li
         v-for="transaction in transcations"

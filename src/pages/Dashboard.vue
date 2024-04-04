@@ -1,6 +1,6 @@
 <script setup>
 import MonthlyBalance from "../components/cards/MonthlyBalance.vue";
-import LastXDays from "../components/cards/LastXDays.vue";
+import LastDaysActivity from "../components/cards/LastDaysActivity.vue";
 import LastMonthExpenseBreakdown from "../components/cards/LastMonthExpenseBreakdown.vue";
 import LastMonthIncomeExpense from "../components/cards/LastMonthIncomeExpense.vue";
 import LatestTransactions from "../components/cards/LatestTransactions.vue";
@@ -11,7 +11,7 @@ import LatestTransactions from "../components/cards/LatestTransactions.vue";
     <LatestTransactions class="card col-span-3" />
     <MonthlyBalance class="card col-span-2" />
     <LastMonthIncomeExpense class="card col-span-2" />
-    <LastXDays class="card col-span-3" />
+    <LastDaysActivity class="card col-span-5 xl:col-span-4" />
     <LastMonthExpenseBreakdown class="card col-span-3" />
   </div>
 </template>

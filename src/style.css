@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .btn {
+    @apply bg-elephant-100 hover:bg-elephant-300 text-elephant-800 py-2 px-4 rounded;
+  }
+
   .card {
     @apply bg-white shadow-sm rounded-lg overflow-hidden p-8 w-full;
   }

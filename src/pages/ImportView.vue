@@ -22,12 +22,12 @@
         <vue-csv-map></vue-csv-map>
       </vue-csv-import>
     </div>
-    <button
-      class="p-2 px-3 bg-sky-500 rounded text-white mt-4"
-      @click.prevent="process()"
-    >
-      Upload
-    </button>
+    <select v-model="account" class="p-2 border">
+      <option value="brukskonto">Brukskonto</option>
+      <option value="lonnskonto">Lønningskonto</option>
+      <option value="mastercard">Mastercard</option>
+    </select>
+    <button class="btn" @click.prevent="process()">Upload</button>
     <p v-if="progress">Progress</p>
   </div>
 </template>
@@ -44,6 +44,7 @@ import {
   VueCsvSubmit,
 } from "vue-csv-import";
 let csv = ref(null);
+let account = ref("brukskonto");
 let progress = ref(false);
 async function process() {
   progress.value = true;
@@ -59,6 +60,7 @@ async function process() {
         subcategory: row.subcategory.trimEnd(),
         amount: row.amount.replace(".", "").replace(",", "."),
         description: row.description,
+        account: account.value,
       };
     });
     uploadToSupabase(formatedRows);
