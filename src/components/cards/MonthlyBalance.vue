@@ -1,7 +1,17 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import BarChart from "../charts/BarChart.vue";
-import { getMonthlyBalance } from "../../composables/transcations.ts";
-const chartData = getMonthlyBalance();
+import { getMonthlyBalance } from "../../composables/monthlyBalance.ts";
+
+const chartData = ref(null);
+async function fetchData() {
+  let data = await getMonthlyBalance();
+  chartData.value = data;
+  // Use chartData here
+}
+onMounted(() => {
+  fetchData();
+});
 const chartOptions = {
   plugins: {
     legend: {
@@ -9,18 +19,18 @@ const chartOptions = {
     },
   },
   scales: {
-    x: {
-      title: {
-        display: true,
-        text: "Month",
-      },
-    },
-    y: {
-      title: {
-        display: true,
-        text: "Amount",
-      },
-    },
+    //x: {
+    //  title: {
+    //    display: true,
+    //    text: "Month",
+    //  },
+    //},
+    //y: {
+    //  title: {
+    //    display: false,
+    //    text: "Amount",
+    //  },
+    //},
   },
 };
 </script>
@@ -28,6 +38,10 @@ const chartOptions = {
 <template>
   <div>
     <h2 class="card-title">Monthly Balance</h2>
-    <BarChart :chartData="chartData" :chartOptions="chartOptions" />
+    <BarChart
+      v-if="chartData"
+      :chartData="chartData"
+      :chartOptions="chartOptions"
+    />
   </div>
 </template>
