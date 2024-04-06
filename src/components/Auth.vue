@@ -4,6 +4,11 @@ import { supabase } from "../lib/supabaseClient.ts";
 
 const loading = ref(false);
 const email = ref("");
+const signInWithGitHub = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "github",
+  });
+};
 
 const handleLogin = async () => {
   try {
@@ -24,27 +29,30 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <form class="row flex-center flex" @submit.prevent="handleLogin">
-    <div class="col-6 form-widget">
+  <div class="grid place-content-center h-full">
+    <div class="card max-w-screen-sm grid gap-4">
       <h1 class="header">Supabase + Vue 3</h1>
-      <p class="description">Sign in via magic link with your email below</p>
       <div>
+        <button class="btn bg-violet-200" @click="signInWithGitHub">
+          GitHub Sign In
+        </button>
+      </div>
+      <form class="grid gap-2" @submit.prevent="handleLogin">
+        <p class="description">Sign in via magic link with your email below</p>
         <input
-          class="inputField"
+          class="p-2 w-full border border-gray-300 rounde"
           required
           type="email"
           placeholder="Your email"
           v-model="email"
         />
-      </div>
-      <div>
         <input
           type="submit"
-          class="button block"
+          class="btn"
           :value="loading ? 'Loading' : 'Send magic link'"
           :disabled="loading"
         />
-      </div>
+      </form>
     </div>
-  </form>
+  </div>
 </template>

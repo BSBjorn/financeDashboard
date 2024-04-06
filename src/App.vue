@@ -18,7 +18,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="window flex h-screen bg-slate-50">
+  <div
+    class="window flex h-screen bg-gradient-to-br from-elephant-50 via-violet-100 to-elephant-200"
+  >
     <Aside />
     <main class="p-8">
       <RouterView v-if="session" :session="session" />

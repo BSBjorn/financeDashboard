@@ -8,7 +8,7 @@
   }
 
   .card {
-    @apply bg-white shadow-sm rounded-lg overflow-hidden p-8 w-full;
+    @apply bg-white/70 shadow-sm rounded-lg overflow-hidden p-8 w-full;
   }
   .card-title {
     @apply text-xl font-thin mb-6;
