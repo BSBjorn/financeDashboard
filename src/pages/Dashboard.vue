@@ -2,7 +2,7 @@
 import MonthlyBalance from "../components/cards/MonthlyBalance.vue";
 import LastDaysActivity from "../components/cards/LastDaysActivity.vue";
 import LastMonthExpenseBreakdown from "../components/cards/LastMonthExpenseBreakdown.vue";
-import LastMonthIncomeExpense from "../components/cards/LastMonthIncomeExpense.vue";
+import MonthlyIncomeExpense from "../components/cards/MonthlyIncomeExpense.vue";
 import LatestTransactions from "../components/cards/LatestTransactions.vue";
 </script>
 
@@ -10,7 +10,7 @@ import LatestTransactions from "../components/cards/LatestTransactions.vue";
   <div class="p-8 grid grid-cols-5 gap-8">
     <LatestTransactions class="card col-span-2 row-span-2" />
     <MonthlyBalance class="card col-span-3" />
-    <LastMonthIncomeExpense class="card col-span-2" />
+    <MonthlyIncomeExpense class="card col-span-2" />
     <LastDaysActivity class="card col-span-5 xl:col-span-4" />
     <LastMonthExpenseBreakdown class="card col-span-3" />
   </div>

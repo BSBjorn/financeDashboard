@@ -71,7 +71,7 @@ function getLastDaysActivity(
         below: "#bfaaff", // Area will be red above the origin
       },
       borderColor: "#a17aff",
-      tension: 0.3,
+      tension: 0.1,
     },
   ];
 
